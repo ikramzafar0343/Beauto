@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-background: #fafaf9;
+  --color-foreground: #1c1917;
+
+  --color-card: #ffffff;
+  --color-card-foreground: #1c1917;
+
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1c1917;
+
+  --color-primary: #f97316;
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: #f5f5f4;
+  --color-secondary-foreground: #1c1917;
+
+  --color-muted: #f5f5f4;
+  --color-muted-foreground: #78716c;
+
+  --color-accent: #f97316;
+  --color-accent-foreground: #ffffff;
+
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+
+  --color-border: #e7e5e4;
+  --color-input: #e7e5e4;
+  --color-ring: #f97316;
+
+  --color-chart-1: #f97316;
+  --color-chart-2: #f59e0b;
+  --color-chart-3: #3b82f6;
+  --color-chart-4: #8b5cf6;
+  --color-chart-5: #ec4899;
+
+  --color-sidebar: #ffffff;
+  --color-sidebar-foreground: #78716c;
+  --color-sidebar-primary: #f97316;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #f5f5f4;
+  --color-sidebar-accent-foreground: #1c1917;
+  --color-sidebar-border: #e7e5e4;
+    --color-sidebar-ring: #f97316;
+
+    --color-beauto-navy: #172136;
+    --color-beauto-dark: #0f1729;
+    --color-beauto-coral: #ffcab9;
+    --color-beauto-cream: #f7f4ed;
+
+    --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+  --radius-sm: 0.25rem;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+
+  --color-text-primary: #1c1917;
+  --color-text-secondary: #57534e;
+  --color-text-tertiary: #a8a29e;
+  --color-border-light: #e7e5e4;
+  --color-border-medium: #d6d3d1;
+  --color-background-hover: #f5f5f4;
+  --color-button-primary: #f97316;
+  --color-button-text-primary: #ffffff;
+  --color-gradient-accent-start: #f97316;
+  --color-gradient-accent-mid: #f59e0b;
+  --color-gradient-accent-end: #ea580c;
+  --color-background-soft-blur: rgba(249, 115, 22, 0.05);
+  --color-canvas-background: #fafaf9;
+    --color-card-title: #1c1917;
+
+    --shadow-3d: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    --shadow-3d-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.2);
+
+    --font-display: "Inter", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+/*
+  The default border color has changed to currentColor in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border);
+  }
+}
+
+@layer utilities {
+  body {
+    font-family: var(--font-body);
+  }
+}
+
+@layer base {
+  :root {
+    --background: var(--color-background);
+    --foreground: var(--color-foreground);
+    --card: var(--color-card);
+    --card-foreground: var(--color-card-foreground);
+    --popover: var(--color-popover);
+    --popover-foreground: var(--color-popover-foreground);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-primary-foreground);
+    --secondary: var(--color-secondary);
+    --secondary-foreground: var(--color-secondary-foreground);
+    --muted: var(--color-muted);
+    --muted-foreground: var(--color-muted-foreground);
+    --accent: var(--color-accent);
+    --accent-foreground: var(--color-accent-foreground);
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-destructive-foreground);
+    --border: var(--color-border);
+    --input: var(--color-input);
+    --ring: var(--color-ring);
+    --chart-1: var(--color-chart-1);
+    --chart-2: var(--color-chart-2);
+    --chart-3: var(--color-chart-3);
+    --chart-4: var(--color-chart-4);
+    --chart-5: var(--color-chart-5);
+    --radius: 0.625rem; /* Base radius for Shadcn/UI components */
+    --sidebar-background: var(--color-sidebar);
+    --sidebar-foreground: var(--color-sidebar-foreground);
+    --sidebar-primary: var(--color-sidebar-primary);
+    --sidebar-primary-foreground: var(--color-sidebar-primary-foreground);
+    --sidebar-accent: var(--color-sidebar-accent);
+    --sidebar-accent-foreground: var(--color-sidebar-accent-foreground);
+    --sidebar-border: var(--color-sidebar-border);
+    --sidebar-ring: var(--color-sidebar-ring);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-text-primary);
+  }
+
+  p {
+    font-family: var(--font-body);
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 200ms ease;
+  }
+
+  a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  }
+
+  .dark {
+    --color-background: #0a0a0a;
+    --color-foreground: #ededed;
+    --color-card: #1a1a1a;
+    --color-card-foreground: #ededed;
+    --color-popover: #1a1a1a;
+    --color-popover-foreground: #ededed;
+    --color-primary: #f97316;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #27272a;
+    --color-secondary-foreground: #ededed;
+    --color-muted: #27272a;
+    --color-muted-foreground: #a1a1aa;
+    --color-accent: #f97316;
+    --color-accent-foreground: #ffffff;
+    --color-destructive: #ef4444;
+    --color-destructive-foreground: #ffffff;
+    --color-border: #27272a;
+    --color-input: #27272a;
+    --color-ring: #f97316;
+    --color-sidebar: #1a1a1a;
+    --color-sidebar-foreground: #a1a1aa;
+    --color-sidebar-primary: #f97316;
+    --color-sidebar-primary-foreground: #ffffff;
+    --color-sidebar-accent: #27272a;
+    --color-sidebar-accent-foreground: #ededed;
+    --color-sidebar-border: #27272a;
+    --color-sidebar-ring: #f97316;
+    --color-text-primary: #ededed;
+    --color-text-secondary: #a1a1aa;
+    --color-text-tertiary: #71717a;
+    --color-border-light: #27272a;
+    --color-border-medium: #3f3f46;
+    --color-background-hover: #27272a;
+  }
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
+
+/* Custom animations for landing page */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-out forwards;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(30px, -30px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-20px, 20px) rotate(240deg);
+  }
+}
+
+.animate-float {
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(-40px, 30px) rotate(-120deg);
+  }
+  66% {
+    transform: translate(25px, -25px) rotate(-240deg);
+  }
+}
+
+  .animate-float-slow {
+    animation: float-slow 25s ease-in-out infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      #343434 0%,
+      #343434 35%,
+      #888 50%,
+      #343434 65%,
+      #343434 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 4s infinite linear;
+  }
+
+  .dark .shimmer-text {
+    background: linear-gradient(
+      90deg,
+      #ffffff 0%,
+      #ffffff 35%,
+      #888 50%,
+      #ffffff 65%,
+      #ffffff 100%
+    );
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @keyframes glass-shine {
+    0% { transform: translateX(-100%) skewX(-15deg); }
+    50% { transform: translateX(100%) skewX(-15deg); }
+    100% { transform: translateX(100%) skewX(-15deg); }
+  }
+
+  .glass-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+.glass-shine::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.3),
+        transparent
+      );
+      animation: glass-shine 4s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .animate-scroll-left {
+        animation: scroll-left 40s linear infinite;
+      }
+
+      .animate-scroll-left:hover {
+        animation-play-state: paused;
+      }
+
+      /* Fade edges for carousel */
+      .carousel-fade-edges::before,
+      .carousel-fade-edges::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100px;
+        z-index: 10;
+        pointer-events: none;
+      }
+
+      .carousel-fade-edges::before {
+        left: 0;
+        background: linear-gradient(to right, white, transparent);
+      }
+
+      .carousel-fade-edges::after {
+        right: 0;
+        background: linear-gradient(to left, white, transparent);
+      }
+
+      .dark .carousel-fade-edges::before {
+        background: linear-gradient(to right, #0a0a0a, transparent);
+      }
+
+      .dark .carousel-fade-edges::after {
+        background: linear-gradient(to left, #0a0a0a, transparent);
+      }
+
+      /* Continuous scroll animation for industry tags */
+      @keyframes scroll-continuous {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .animate-scroll-continuous {
+        animation: scroll-continuous 30s linear infinite;
+      }
+
+      /* Custom visible scrollbar for sidebar integrations list */
+      .thin-scrollbar::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      .thin-scrollbar::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 6px;
+      }
+
+      .dark .thin-scrollbar::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      .thin-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 6px;
+        border: 2px solid transparent;
+        background-clip: padding-box;
+      }
+
+      .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.5);
+        background-clip: padding-box;
+      }
+
+      .dark .thin-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.3);
+        background-clip: padding-box;
+      }
+
+      .dark .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.5);
+        background-clip: padding-box;
+      }
+
+      /* Firefox scrollbar */
+      .thin-scrollbar {
+        scrollbar-width: auto;
+        scrollbar-color: rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.05);
+      }
+
+      .dark .thin-scrollbar {
+        scrollbar-color: rgba(255, 255, 255, 0.3) rgba(255, 255, 255, 0.05);
+      }
