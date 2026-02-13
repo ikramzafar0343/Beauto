@@ -45,3 +45,4 @@ next-env.d.ts
 ".next-build" 
 "node_modules" 
 ".env" 
+".next-build/" 
