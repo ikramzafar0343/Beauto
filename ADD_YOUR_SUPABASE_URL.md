@@ -2,17 +2,14 @@
 
 ## Your Supabase URL
 
-You have provided this Supabase URL:
-```
-https://taeqitqdbenjsfrszpbu.supabase.co
-```
+Add your Supabase project URL (format: `https://<project-ref>.supabase.co`) to your local environment.
 
 ## Step 1: Get Your API Keys
 
 You need to get the API keys for this project:
 
 1. **Go to Supabase Dashboard**: https://app.supabase.com
-2. **Find your project** with URL: `taeqitqdbenjsfrszpbu`
+2. **Find your project**
 3. **Click on the project** to open it
 4. **Go to Settings** (gear icon in left sidebar)
 5. **Click "API"** in the settings menu
@@ -33,7 +30,7 @@ Copy and paste this into your `.env.local` file, then replace the keys with your
 
 ```env
 # Supabase Configuration
-NEXT_PUBLIC_SUPABASE_URL=https://taeqitqdbenjsfrszpbu.supabase.co
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=paste-your-anon-key-here
 SUPABASE_SERVICE_ROLE_KEY=paste-your-service-role-key-here
 
@@ -69,7 +66,7 @@ GEMINI_API_KEY=your_gemini_api_key
 1. Open your browser: http://localhost:3000
 2. Try to sign in or sign up
 3. If you see errors, check:
-   - The URL is correct: `https://taeqitqdbenjsfrszpbu.supabase.co`
+   - The URL is correct: `https://<project-ref>.supabase.co`
    - The keys are complete (they're very long strings)
    - No extra spaces or characters
    - File is saved as `.env.local` (not `.env.local.txt`)
@@ -77,7 +74,7 @@ GEMINI_API_KEY=your_gemini_api_key
 ## Quick Checklist
 
 - [ ] Logged into Supabase Dashboard
-- [ ] Found project: `taeqitqdbenjsfrszpbu`
+- [ ] Found your project
 - [ ] Went to Settings → API
 - [ ] Copied anon/public key
 - [ ] Copied service_role key
@@ -94,9 +91,9 @@ GEMINI_API_KEY=your_gemini_api_key
 Here's what your complete `.env.local` should look like (with example keys):
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://taeqitqdbenjsfrszpbu.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRhZXFpdHFkYmVuanNmcntzYnB1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTY4OTUyMzQsImV4cCI6MjAzMjQ3MTIzNH0.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-SUPABASE_SERVICE_ROLE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRhZXFpdHFkYmVuanNmcntzYnB1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxNjg5NTIzNCwiZXhwIjoyMDMyNDcxMjM0fQ.yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 COMPOSIO_API_KEY=your_composio_key_here
 ```
 
@@ -104,6 +101,5 @@ COMPOSIO_API_KEY=your_composio_key_here
 
 ## Need Help?
 
-- **Can't find the keys?** See [HOW_TO_GET_SUPABASE_CREDENTIALS.md](./HOW_TO_GET_SUPABASE_CREDENTIALS.md)
 - **Getting errors?** See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md)
 - **Project paused?** See [SUPABASE_PAUSED_FIX.md](./SUPABASE_PAUSED_FIX.md)

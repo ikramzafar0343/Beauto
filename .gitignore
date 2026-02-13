@@ -16,6 +16,7 @@
 # next.js
 /.next/
 /out/
+/.next-build/
 
 # production
 /build
@@ -41,8 +42,9 @@ next-env.d.ts
 .env
 .env*.local
 .env.local
-".next" 
-".next-build" 
-"node_modules" 
-".env" 
-".next-build/" 
+
+# local build artifacts / caches
+.next-build
+
+# accidental nested git directories
+Beauto.git/

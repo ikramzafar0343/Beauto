@@ -11,7 +11,7 @@ You need to add one more key: **service_role key**
 ## How to Get Service Role Key:
 
 1. **Go to Supabase Dashboard**: https://app.supabase.com
-2. **Open your project**: `taeqitqdbenjsfrszpbu`
+2. **Open your project**
 3. **Go to**: Settings ⚙️ → API
 4. **Find**: "service_role" key
 5. **Click**: Eye icon 👁️ or "Reveal" button
@@ -29,8 +29,8 @@ Replace `PASTE_NEW_SERVICE_ROLE_KEY_HERE_FROM_SUPABASE_DASHBOARD` with your actu
 ## Your .env.local Should Look Like:
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://taeqitqdbenjsfrszpbu.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRhZXFpdHFkYmVuanNmcnN6cGJ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkyODg2MTEsImV4cCI6MjA4NDg2NDYxMX0.dJS-ZLB1Rgs5kfuFXmw9rBvf4M75IirpwJE3wJN72ow
+NEXT_PUBLIC_SUPABASE_URL=https://your-project-ref.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
 ```
 

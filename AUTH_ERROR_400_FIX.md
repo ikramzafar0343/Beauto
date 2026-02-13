@@ -43,7 +43,7 @@ If you signed up but haven't verified your email:
 If you forgot your password:
 
 1. Go to Supabase Dashboard: https://app.supabase.com
-2. Open your project: `taeqitqdbenjsfrszpbu`
+2. Open your project
 3. Go to: **Authentication** → **Users**
 4. Find your user
 5. Click **"Reset Password"** or use password reset flow
@@ -86,7 +86,7 @@ If this works, the issue is with your original account credentials.
 
 1. **Check Supabase Dashboard**:
    - Go to: https://app.supabase.com
-   - Open project: `taeqitqdbenjsfrszpbu`
+   - Open your project
    - Go to: **Authentication** → **Users**
    - See if your user exists and is active
 

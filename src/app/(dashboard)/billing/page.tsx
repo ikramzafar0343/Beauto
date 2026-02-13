@@ -12,7 +12,8 @@ import {
   Search,
   Calendar,
   CheckCircle2,
-  Globe
+  Globe,
+  Edit
 } from "lucide-react";
 import Link from "next/link";
 

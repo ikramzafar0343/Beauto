@@ -56,10 +56,13 @@ export async function POST(req: NextRequest) {
       }
       
       // Check for permission errors (RLS policy violation)
+      const status = (error as unknown as { status?: number; statusCode?: number | string }).status ??
+        (error as unknown as { statusCode?: number | string }).statusCode;
+
       if (error.message?.includes("new row violates row-level security") || 
           error.message?.includes("RLS") || 
-          error.statusCode === '403' ||
-          error.status === 403) {
+          status === "403" ||
+          status === 403) {
         return NextResponse.json({ 
           error: `Storage bucket RLS policies not configured. Please run the migration file 'supabase/migrations/001_storage_bucket_policies.sql' in your Supabase SQL Editor, or create the bucket '${bucketName}' with proper RLS policies in Supabase Dashboard > Storage.` 
         }, { status: 403 });
